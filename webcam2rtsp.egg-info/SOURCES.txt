@@ -1,0 +1,11 @@
+README.md
+setup.py
+webcam2rstp/__init__.py
+webcam2rstp/__main__.py
+webcam2rstp/streamer.py
+webcam2rtsp.egg-info/PKG-INFO
+webcam2rtsp.egg-info/SOURCES.txt
+webcam2rtsp.egg-info/dependency_links.txt
+webcam2rtsp.egg-info/entry_points.txt
+webcam2rtsp.egg-info/requires.txt
+webcam2rtsp.egg-info/top_level.txt
