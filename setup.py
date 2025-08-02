@@ -7,10 +7,10 @@ setup(
     install_requires=["pygobject"],
     entry_points={
         "console_scripts": [
-            "webcam-rtsp=webcam2rtsp.streamer:main"
+            "webcam2rtsp=webcam2rtsp.__main__:main"
         ]
     },
-    description="Cross-platform RTSP H.264 webcam streamer using GStreamer",
-    author="Your Name",
+    description="RTSP H.264 webcam streamer for macOS using GStreamer",
+    author="Memetea Cosmin",
     python_requires=">=3.7",
 )

@@ -1,71 +1,88 @@
-# 📡 webcam2rstp
+# 📡 webcam2rtsp
 
-**webcam2rstp** is a cross-platform Python package that streams your laptop's webcam as an **RTSP (H.264)** video feed using **GStreamer**.
+**webcam2rtsp** is a Python package for macOS that streams your webcam over RTSP using H.264 encoding and GStreamer.
 
-📺 Stream your webcam via:
-
-bash```
-rtsp://localhost:8854/test
-```
-
+🖥️ URL: `rtsp://localhost:8851/webcam1`
 
 ---
 
 ## ✅ Features
 
-- RTSP server accessible on `localhost:8854`
-- Auto-detects operating system (Linux, macOS, Windows)
+- RTSP server accessible on `localhost:8851`
 - Streams using system webcam with H.264 encoding
 - Easy to install and run in a virtual environment
 - Compatible with GStreamer-enabled players (VLC, FFplay, etc.)
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started (macOS only)
 
-### 1. Create and activate virtual environment
+### 1. Install GStreamer (macOS)
 
 ```bash
-python -m venv venv
-source venv/bin/activate         # On macOS/Linux
-venv\Scripts\activate            # On Windows
+brew install gstreamer gst-plugins-base gst-plugins-good gst-libav gst-plugins-bad gst-plugins-ugly pygobject3
 ```
 
-### 2. Install Python dependencies
-pip install -r requirements.txt
-pip install -e .
+### 2. Add Environment Variables Temporarily
+In your terminal (in the project folder):
 
-
-🪟 Windows Setup
-1. Install GStreamer (Full MSVC x64)
-Download from:
-👉 https://gstreamer.freedesktop.org/download/
-
-Install both:
-
-Runtime Installer
-
-Development Installer
-
-Typical path: C:\gstreamer\1.0\x86_64\
-
-2. Set environment variables (PowerShell)
-
-bash```
-$env:PATH += ";C:\gstreamer\1.0\x86_64\bin"
-$env:GI_TYPELIB_PATH = "C:\gstreamer\1.0\x86_64\lib\girepository-1.0"
-(You can add these to system environment variables permanently.)
-```
-
-3. Test GStreamer
-bash```
-gst-launch-1.0 ksvideosrc ! videoconvert ! autovideosink
-If webcam window appears, you're good to go!
+```bash
+export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+export GI_TYPELIB_PATH=/opt/homebrew/lib/girepository-1.0
 ```
 
 
 
+### 3. (Optional) Add Environment Variables Permanently
+Edit your ~/.zshrc (or ~/.bash_profile):
+
+```bash
+nano ~/.zshrc
+```
+And copy in the end of the .zshrc and .bash_profile at the end.
+```bash
+export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib
+export GI_TYPELIB_PATH=/opt/homebrew/lib/girepository-1.0
+```
+
+Good luck saving the file using using nano editor!
+
+
+### 4. Clone and run
+
+```bash
+git clone https://github.com/cosminmemetea/webcam2rtsp.git
+cd webcam2rtsp
 python3 -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+source venv/bin/activate
+pip install -upgrade pip
 pip install -r requirements.txt
 pip install -e .
+python -m webcam2rtsp
+```
+
+You can now open the stream at:
+
+```bash
+rtsp://localhost:8851/webcam1
+```
+
+With:
+
+VLC → Open Network Stream
+
+FFplay → ffplay rtsp://localhost:8851/webcam1
+
+### 5. (Optional) Create a macOS .command launcher
+
+Let’s automate this. Create a file named run_webcam2rtsp.command in your project folder:
+
+
+```bash
+touch run_webcam2rtsp.command
+chmod +x run_webcam2rtsp.command
+```
+
+

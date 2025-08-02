@@ -1,4 +1,4 @@
-from webcam2rstp import WebcamRTSPServer
+from webcam2rtsp import WebcamRTSPServer
 
 if __name__ == "__main__":
     server = WebcamRTSPServer()

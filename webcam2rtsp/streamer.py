@@ -7,7 +7,7 @@ gi.require_version('GstRtspServer', '1.0')
 from gi.repository import Gst, GstRtspServer, GObject
 
 class WebcamRTSPServer:
-    def __init__(self, port=8854, mount_point="/test"):
+    def __init__(self, port=8854, mount_point="/webcam1"):
         Gst.init(None)
 
         self.port = str(port)
@@ -26,12 +26,9 @@ class WebcamRTSPServer:
 
     def _get_pipeline(self):
         os_name = platform.system().lower()
-        if os_name == "linux":
-            source = "v4l2src device=/dev/video0"
-        elif os_name == "darwin":
+        
+        if os_name == "darwin":
             source = "avfvideosrc device-index=0"
-        elif os_name == "windows":
-            source = "ksvideosrc device-index=0"
         else:
             raise Exception(f"Unsupported OS: {os_name}")
 
