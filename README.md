@@ -1,7 +1,7 @@
 # 📡 webcam2rtsp
 
 [![macOS Only](https://img.shields.io/badge/macOS-supported-brightgreen?logo=apple)](#)
-[![MIT License](https://img.shields.io/github/license/cosminmemetea/webcam2rtsp)](https://github.com/cosminmemetea/webcam2rstp/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/github/license/cosminmemetea/webcam2rtsp)](https://github.com/cosminmemetea/webcam2rtsp/blob/main/LICENSE)
 
 **webcam2rtsp** is a Python package for macOS that streams your webcam over RTSP using H.264 encoding and GStreamer.
 
