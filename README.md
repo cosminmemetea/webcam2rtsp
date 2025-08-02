@@ -1,5 +1,8 @@
 # 📡 webcam2rtsp
 
+[![macOS Only](https://img.shields.io/badge/macOS-supported-brightgreen?logo=apple)](#)
+[![MIT License](https://img.shields.io/github/license/cosminmemetea/webcam2rstp)](https://github.com/cosminmemetea/webcam2rstp/blob/main/LICENSE)
+
 **webcam2rtsp** is a Python package for macOS that streams your webcam over RTSP using H.264 encoding and GStreamer.
 
 🖥️ URL: `rtsp://localhost:8851/webcam1`
@@ -84,5 +87,13 @@ Let’s automate this. Create a file named run_webcam2rtsp.command in your proje
 touch run_webcam2rtsp.command
 chmod +x run_webcam2rtsp.command
 ```
+
+## License
+
+License: MIT – Permissive open-source license allowing free use, modification, and distribution for any purpose, with minimal restrictions.
+
+## Contributing
+Contributions make this repo better! Whether fixing bugs, adding features, or improving docs, you're welcome.
+Let's have fun!
 
 
